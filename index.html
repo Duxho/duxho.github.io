@@ -1,55 +1,75 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta name="google-site-verification" content="k8B2z8FL-sU0BZY8hI8QNM5kW_eiDMQ2VOlwnCqD2Ao" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Dani</title>
+    <title>Uploading To Spiral</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
-<html>
-    <head>
-        <title>DaniDev</title>
-        <link rel="stylesheet" href="styles/main.css">
-    </head>
-    <body>
-        <header>
-            <nav>
-                <ul class="topnav">
-                    <li class="logo"><a href="index.html"></a></li>
-                    <li><a href="index.html">HOME</a></li>
-                    <li><a href="pages/games.html">GAMES</a></li>
-                    <li><a href="pages/videos.html">SOCIAL MEDIA</a></li>
-                </ul>
-            </nav>
-        </header>
+<body>
+    <section class="topup">
+        <li><a href="#section3" style="text-decoration: none;" alt="Spiral up!" data-aos="fade-up" class="help__header">Help</a></li>
+    </section>
+    <section class="centered1">
+        <div>
+            <h1 class="hero__header pink__colored" data-aos="fade-right">Hiya There!</h1>
+            <h1 class="hero__header" data-aos="fade-left">Wanna come in?</h1>
+            <a href="#section2" style="font-size: 6vw; text-decoration: none; margin-top: 5px;" alt="Spiral up!" data-aos="fade-up" class="logo__image pink__colored">Submit Your Game!</a>
+        </div>
+    </section>
+    <section class="centered" id="section3">
+        <iframe width="684" height="385" src="https://www.youtube.com/embed/zJZEO2eJWNo" title="I Tried Skyward Swords Boss Rush" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </section>
 
-        <section>
-            <header class="home">
-                L, O, L.     
-            </header>
-            <a class="mybutton" href="#middle">Learn more.</a>
-        </section>
+    <section class="centered" id="section2">
+        <input type="file" id="uploadGame" accept=".zip" name="avatar">
+        <label for="uploadGame" id="badgeLabel" class="uploadgame__header">Upload Game.zip</label>
+    </section>
 
-        <section class="par" id="middle">
-            <header>
-                Hi!
-            </header>
-            <nav>
-                lol <br>
-                hi <br>
-                lol <br>
-                hi
-            </nav>
-            <ul>
-                <a class="mybutton" href="pages/games">Games</a>
-                <a class="mybutton" href="pages/videos">Videos</a>
-            </ul>
-        </section>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>AOS.init(
+        {
+            once: false,
+            mirror: true,
+            anchorPlacement: 'top-bottom',
+            offset: 0,
+            duration: 800
+        });</script>
 
-        <footer>&copy; 2019 DaniDev</footer>
-    </body>
+        <script type="text/javascript">
+
+            const inputBadge = document.getElementById("uploadGame");
+
+            let objectURLBadge;
+
+            inputBadge.addEventListener('change', function () {
+                if (objectURLBadge) {
+                  // revoke the old object url to avoid using more memory than needed
+                  URL.revokeObjectURL(objectURLBadge);  
+                }
+                var i = 0;
+                const file = this.files[i];
+                objectURLBadge = URL.createObjectURL(file);
+                const fileName = this.files[0].name;
+                console.log(fileName);
+                if(fileName != "Game.zip")
+                {
+                    alert("Error: Filetype has to be '.zip' and Filename has to be 'Game', so 'Game.zip'")
+                }
+              });
+
+              function UPDATE()
+	        {
+    	update = setInterval(UPDATE, 60);
+		update;
+		if(objectURLBadge !== "undefined")
+		{
+			document.getElementById("badgeLabel").textContent = " ";
+		}
+	}
+        </script>
+</body>
 </html>
-
-    
